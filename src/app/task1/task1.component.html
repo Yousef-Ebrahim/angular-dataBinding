@@ -1,0 +1,32 @@
+<form class="m-3">
+  <div class="form-group">
+    <label for="exampleInputEmail1">INDEX</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter index">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">NAME</label>
+    <input [(ngModel)]="x" 
+    type="text" class="form-control" 
+    id="exampleInputPassword1" placeholder="Enter name">
+  </div>
+</form>
+<h1>{{x}}</h1>
+
+<table class="table table-striped w-75 mx-5">
+  <thead>
+    <tr>
+      <th scope="col">Num</th>
+      <th scope="col">{{x}}</th>
+      <th scope="col">Age</th>
+      <th scope="col">Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of data;let i = index">
+      <th scope="row">{{i+1}}</th>
+      <td>{{item.name}}</td>
+      <td>{{item.age}}</td>
+      <td>{{item.email}}</td>
+    </tr>
+  </tbody>
+</table>
