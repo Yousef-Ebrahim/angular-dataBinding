@@ -44,5 +44,4 @@ export class CoursesComponent {
   ];
   idx=3
 getIndex(){
-  return this.data[0].name;
 }}
