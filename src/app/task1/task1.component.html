@@ -1,32 +1,47 @@
-<form class="m-3">
-  <div class="form-group">
-    <label for="exampleInputEmail1">INDEX</label>
-    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter index">
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">NAME</label>
-    <input [(ngModel)]="x" 
-    type="text" class="form-control" 
-    id="exampleInputPassword1" placeholder="Enter name">
-  </div>
-</form>
-<h1>{{x}}</h1>
 
-<table class="table table-striped w-75 mx-5">
-  <thead>
-    <tr>
-      <th scope="col">Num</th>
-      <th scope="col">{{x}}</th>
-      <th scope="col">Age</th>
-      <th scope="col">Email</th>
+<div class="m-5">
+  <div class="form-group">
+    <label for="exampleInputEmail1" class="bg-success fw-bold text-light fs-2">INDEX</label>
+    <input
+      [(ngModel)]="idx"
+      (input)="getIndex()"
+      type="number"
+      class="form-control w-25"
+      id="exampleInputEmail1"
+      aria-describedby="emailHelp"
+      placeholder="Enter index"
+    />
+  </div>
+  <div class="form-group">
+    <label for="formGroupExampleInput" class="bg-success fw-bold text-light fs-2">NAME</label>
+    <input
+      [(ngModel)]="x"
+      type="text"
+      class="form-control w-25"
+      id="formGroupExampleInput"
+      placeholder="enter name"
+    />
+  </div>
+</div>
+<table class="bg table-striped table-bordered w-75 mx-5 text-center fs-3">
+  <thead >
+    <tr >
+      <th class="bg1"scope="col">Num</th>
+      <th class="bg1"scope="col">Name</th>
+      <th class="bg1"scope="col">Age</th>
+      <th class="w-25 bg1"scope="col">Email</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let item of data;let i = index">
-      <th scope="row">{{i+1}}</th>
-      <td>{{item.name}}</td>
-      <td>{{item.age}}</td>
-      <td>{{item.email}}</td>
+    <tr *ngFor="let item of data; let i = index">
+      <th scope="row">{{ i + 1 }}</th>
+      <td *ngIf="i === idx-1; else thisName">{{ x }}</td>
+      <ng-template #thisName>
+        <td>{{ item.name }}</td>
+      </ng-template>
+      <td>{{ item.age }}</td>
+      <td>{{ item.email }}</td>
     </tr>
   </tbody>
 </table>
+<img src="https://signature.freefire-name.com/img.php?f=2&t=Joe" alt="" class="sign">

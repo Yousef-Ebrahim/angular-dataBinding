@@ -6,9 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./task1.component.scss'],
 })
 export class Task1Component {
-  isIfCond = true;
-  x: string = '';
-
   data = [
     {
       name: 'John',
@@ -36,4 +33,12 @@ export class Task1Component {
       email: ' julia@gmail.com',
     },
   ];
+  x = '';
+
+  idx = 0;
+  userInput = '';
+
+  getIndex() {
+    return this.userInput;
+  }
 }
